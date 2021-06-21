@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { styled } from '../../styled';
-import { ImageType, ImageStyleType } from '../../types/style.image.native';
+import { ImageType, ImageStyleType } from '../../types/image.native';
 
 import { marginStyle, opacityStyle } from '@solariera/native-style/src/object';
 import { paddingStyle, positionStyle, sizeStyle } from '@solariera/native-style/src/object';
@@ -11,7 +11,7 @@ export type Props = ImageType;
 
 type StyleProps = ImageStyleType;
 
-const RasterImage: React.FC<Props> = (props: Props) => {
+const Component: React.FC<Props> = (props: Props) => {
   /**
    * 値を書き換えるプロパティ
    * プロパティ名を差し替えるプロパティ
@@ -52,4 +52,4 @@ const Image = styled.Image<StyleProps>`
   ${(props: StyleProps) => opacityStyle({ ...props })}
 `;
 
-export default React.memo(RasterImage);
+export const RasterImage = React.memo(Component);

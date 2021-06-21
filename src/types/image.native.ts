@@ -3,7 +3,7 @@ import { ImageSourcePropType } from 'react-native';
 /**
  * イメージ系コンポーネントのインターフェイス
  */
-declare interface ImageType {
+export interface ImageType {
   left?: number;
   right?: number;
   top?: number;
@@ -31,11 +31,9 @@ declare interface ImageType {
  * イメージプロパティをstyled-componentsに渡すときの型
  * ※marginはそのままだと使えないのでmarginSizeにリネーム
  */
-declare type ImageStyleType = Omit<ImageType, 'disable' | 'disabledStyle'>;
+export type ImageStyleType = Omit<ImageType, 'disable' | 'disabledStyle'>;
 
 /**
  * イメージプロパティの必要項目を全て任意にした型
  */
-declare type DisabledImageType = Partial<Omit<ImageType, 'disable' | 'disabledStyle'>>;
-
-export { ImageType, ImageStyleType, DisabledImageType };
+export type DisabledImageType = Partial<Omit<ImageType, 'disable' | 'disabledStyle'>>;

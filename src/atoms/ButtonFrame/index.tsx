@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { styled } from '../../styled';
-import { FrameType, FrameStyleType } from '../../types/style.frame';
+import { FrameType, FrameStyleType } from '../../types/frame';
 
 import { flexBasicStyle, flexContainerStyle } from '@solariera/native-style/src/flex';
 import { borderStyle, colorStyle, marginStyle, opacityStyle } from '@solariera/native-style/src/object';
@@ -14,7 +14,7 @@ export type Props = FrameType & {
 
 type StyleProps = FrameStyleType;
 
-const ButtonFrame: React.FC<Props> = (props: Props) => {
+const Component: React.FC<Props> = (props: Props) => {
   /**
    * 値を書き換えるプロパティ
    * プロパティ名を差し替えるプロパティ
@@ -78,4 +78,4 @@ const Frame = styled.TouchableOpacity<StyleProps>`
   ${(props: StyleProps) => roundStyle({ ...props })}
 `;
 
-export default React.memo(ButtonFrame);
+export const ButtonFrame = React.memo(Component);

@@ -4,7 +4,7 @@ import { ImageURISource, ImageResizeMode } from 'react-native';
 /**
  * イメージ系コンポーネントのインターフェイス
  */
-declare interface BgImageType {
+export interface BgImageType {
   children: React.ReactNode;
   left?: number;
   top?: number;
@@ -18,7 +18,7 @@ declare interface BgImageType {
  * イメージプロパティをstyled-componentsに渡すときの型
  * ※marginはそのままだと使えないのでmarginSizeにリネーム
  */
-declare type BgImageStyleType = {
+export type BgImageStyleType = {
   left?: number;
   right?: number;
   top?: number;
@@ -26,5 +26,3 @@ declare type BgImageStyleType = {
   width: number;
   height: number;
 };
-
-export { BgImageType, BgImageStyleType };

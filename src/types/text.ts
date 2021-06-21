@@ -1,7 +1,7 @@
 /**
  * テキスト系コンポーネントのインターフェイス
  */
-declare type TextType = {
+export type TextType = {
   left?: number;
   right?: number;
   top?: number;
@@ -39,11 +39,9 @@ declare type TextType = {
  * テキストプロパティをstyled-componentsに渡すときの型
  * ※marginはそのままだと使えないのでmarginSizeにリネーム
  */
-declare type TextStyleType = Omit<TextType, 'disable' | 'disabledStyle'>;
+export type TextStyleType = Omit<TextType, 'disable' | 'disabledStyle'>;
 
 /**
  * テキストプロパティの必要項目を全て任意にした型
  */
-declare type DisabledTextStyle = Partial<Omit<TextType, 'disable' | 'disabledStyle'>>;
-
-export { TextType, TextStyleType, DisabledTextStyle };
+export type DisabledTextStyle = Partial<Omit<TextType, 'disable' | 'disabledStyle'>>;

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { styled } from '../../styled';
-import { BgImageType, BgImageStyleType } from '../../types/style.bgimage';
+import { BgImageType, BgImageStyleType } from '../../types/bgimage';
 
 import { positionStyle, sizeStyle } from '@solariera/native-style/src/object';
 import { useMemoizedObject } from '@solariera/use-memoized/src';
@@ -10,7 +10,7 @@ export type Props = BgImageType;
 
 type StyleProps = BgImageStyleType;
 
-const BackgroundImage: React.FC<Props> = (props: Props) => {
+const Component: React.FC<Props> = (props: Props) => {
   const { children, left, top, width, height, source, resizeMode } = props;
 
   /**
@@ -34,4 +34,4 @@ const BackgroundView = styled.ImageBackground<StyleProps>`
   ${(props: StyleProps) => sizeStyle({ ...props })}
 `;
 
-export default React.memo(BackgroundImage);
+export const BackgroundImage = React.memo(Component);

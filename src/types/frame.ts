@@ -3,7 +3,7 @@ import React from 'react';
 /**
  * フレーム系コンポーネントのインターフェイス
  */
-declare type FrameType = {
+export type FrameType = {
   children?: React.ReactNode;
   left?: number;
   right?: number;
@@ -45,11 +45,9 @@ declare type FrameType = {
  * フレームプロパティをstyled-componentsに渡すときの型
  * ※marginはそのままだと使えないのでmarginSizeにリネーム
  */
-declare type FrameStyleType = Omit<FrameType, 'children' | 'disable' | 'disabledStyle'>;
+export type FrameStyleType = Omit<FrameType, 'children' | 'disable' | 'disabledStyle'>;
 
 /**
  * フレームプロパティの必要項目を全て任意にした型
  */
-declare type DisabledFrameType = Partial<Omit<FrameType, 'children' | 'disable' | 'disabledStyle'>>;
-
-export { FrameType, FrameStyleType, DisabledFrameType };
+export type DisabledFrameType = Partial<Omit<FrameType, 'children' | 'disable' | 'disabledStyle'>>;

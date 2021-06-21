@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { styled } from '../../styled';
-import { TextType, TextStyleType } from '../../types/style.text';
+import { TextType, TextStyleType } from '../../types/text';
 
 import { colorStyle, marginStyle, opacityStyle } from '@solariera/native-style/src/object';
 import { paddingStyle, positionStyle, sizeStyle } from '@solariera/native-style/src/object';
@@ -15,7 +15,7 @@ export type Props = TextType & {
 
 type StyleProps = TextStyleType;
 
-const TextField: React.FC<Props> = (props: Props) => {
+const Component: React.FC<Props> = (props: Props) => {
   /**
    * 値を書き換えるプロパティ
    * プロパティ名を差し替えるプロパティ
@@ -66,4 +66,4 @@ const TextArea = styled.Text<StyleProps>`
   ${(props: StyleProps) => strokeStyle({ ...props })}
 `;
 
-export default React.memo(TextField);
+export const TextField = React.memo(Component);
