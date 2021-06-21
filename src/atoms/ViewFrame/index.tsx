@@ -1,9 +1,11 @@
 import React from 'react';
+
 import { styled } from '../../styled';
+import { FrameType, FrameStyleType } from '../../types/style.frame';
+
 import { flexBasicStyle, flexContainerStyle } from '@solariera/native-style/src/flex';
 import { borderStyle, colorStyle, marginStyle, opacityStyle } from '@solariera/native-style/src/object';
 import { paddingStyle, positionStyle, roundStyle, sizeStyle } from '@solariera/native-style/src/object';
-import { FrameType, FrameStyleType } from '../../types/style.frame';
 import { useMemoizedObject } from '@solariera/use-memoized/src';
 
 export type Props = FrameType & {};

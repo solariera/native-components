@@ -9,12 +9,12 @@ import { paddingStyle, positionStyle, roundStyle, sizeStyle } from '@solariera/n
 import { useMemoizedObject } from '@solariera/use-memoized/src';
 
 export type Props = FrameType & {
-  onPress?: () => void;
+  horizontal?: boolean;
 };
 
 type StyleProps = FrameStyleType;
 
-const ButtonFrame: React.FC<Props> = (props: Props) => {
+const ScrollViewFrame: React.FC<Props> = (props: Props) => {
   /**
    * 値を書き換えるプロパティ
    * プロパティ名を差し替えるプロパティ
@@ -25,7 +25,7 @@ const ButtonFrame: React.FC<Props> = (props: Props) => {
    * 初期値をここで指定するプロパティ
    * スタイルに渡さないプロパティ
    */
-  const { children, onPress, disable = false, disabledStyle, ...frameProps } = props;
+  const { children, horizontal = false, disable = false, disabledStyle, ...frameProps } = props;
 
   /**
    * 無効化時のスタイルを呼び出す
@@ -44,27 +44,14 @@ const ButtonFrame: React.FC<Props> = (props: Props) => {
     ...disabled,
   });
 
-  /**
-   * onPressが存在しな場合は、オブジェクトだけを返す
-   */
-  if (!onPress)
-    return (
-      <Frame {...styleProps} disabled={disable}>
-        {children}
-      </Frame>
-    );
-
-  /**
-   * onPressが有効な場合は、onPressを付与したフレームを返す
-   */
   return (
-    <Frame onPress={onPress} {...styleProps} disabled={disable}>
+    <Frame {...styleProps} horizontal={horizontal}>
       {children}
     </Frame>
   );
 };
 
-const Frame = styled.TouchableOpacity<StyleProps>`
+const Frame = styled.ScrollView<StyleProps>`
   ${(props: StyleProps) => flexBasicStyle({ ...props })}
   ${(props: StyleProps) => flexContainerStyle({ ...props })}
   ${(props: StyleProps) => sizeStyle({ ...props })}
@@ -78,4 +65,4 @@ const Frame = styled.TouchableOpacity<StyleProps>`
   ${(props: StyleProps) => roundStyle({ ...props })}
 `;
 
-export default React.memo(ButtonFrame);
+export default React.memo(ScrollViewFrame);

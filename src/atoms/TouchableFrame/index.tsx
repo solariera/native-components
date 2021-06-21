@@ -14,7 +14,7 @@ export type Props = FrameType & {
 
 type StyleProps = FrameStyleType;
 
-const ButtonFrame: React.FC<Props> = (props: Props) => {
+const TouchableFrame: React.FC<Props> = (props: Props) => {
   /**
    * 値を書き換えるプロパティ
    * プロパティ名を差し替えるプロパティ
@@ -78,4 +78,4 @@ const Frame = styled.TouchableOpacity<StyleProps>`
   ${(props: StyleProps) => roundStyle({ ...props })}
 `;
 
-export default React.memo(ButtonFrame);
+export default React.memo(TouchableFrame);

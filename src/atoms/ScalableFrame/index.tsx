@@ -1,4 +1,5 @@
 import React from 'react';
+import TouchableScale from 'react-native-touchable-scale';
 
 import { styled } from '../../styled';
 import { FrameType, FrameStyleType } from '../../types/style.frame';
@@ -9,12 +10,17 @@ import { paddingStyle, positionStyle, roundStyle, sizeStyle } from '@solariera/n
 import { useMemoizedObject } from '@solariera/use-memoized/src';
 
 export type Props = FrameType & {
+  defaultScale?: number;
+  activeScale?: number;
   onPress?: () => void;
 };
 
-type StyleProps = FrameStyleType;
+type StyleProps = FrameStyleType & {
+  defaultScale?: number;
+  activeScale?: number;
+};
 
-const ButtonFrame: React.FC<Props> = (props: Props) => {
+const ScalableFrame: React.FC<Props> = (props: Props) => {
   /**
    * 値を書き換えるプロパティ
    * プロパティ名を差し替えるプロパティ
@@ -25,7 +31,7 @@ const ButtonFrame: React.FC<Props> = (props: Props) => {
    * 初期値をここで指定するプロパティ
    * スタイルに渡さないプロパティ
    */
-  const { children, onPress, disable = false, disabledStyle, ...frameProps } = props;
+  const { children, onPress, disable = false, disabledStyle, activeScale = 0.9, ...frameProps } = props;
 
   /**
    * 無効化時のスタイルを呼び出す
@@ -41,6 +47,7 @@ const ButtonFrame: React.FC<Props> = (props: Props) => {
     right: right === -1 ? undefined : right,
     top: top === -1 ? undefined : top,
     bottom: bottom === -1 ? undefined : bottom,
+    activeScale,
     ...disabled,
   });
 
@@ -64,7 +71,7 @@ const ButtonFrame: React.FC<Props> = (props: Props) => {
   );
 };
 
-const Frame = styled.TouchableOpacity<StyleProps>`
+const Frame = styled(TouchableScale)<StyleProps>`
   ${(props: StyleProps) => flexBasicStyle({ ...props })}
   ${(props: StyleProps) => flexContainerStyle({ ...props })}
   ${(props: StyleProps) => sizeStyle({ ...props })}
@@ -78,4 +85,4 @@ const Frame = styled.TouchableOpacity<StyleProps>`
   ${(props: StyleProps) => roundStyle({ ...props })}
 `;
 
-export default React.memo(ButtonFrame);
+export default React.memo(ScalableFrame);

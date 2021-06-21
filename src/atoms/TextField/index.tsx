@@ -1,12 +1,13 @@
 import React from 'react';
+
 import { styled } from '../../styled';
+import { TextType, TextStyleType } from '../../types/style.text';
+
 import { colorStyle, marginStyle, opacityStyle } from '@solariera/native-style/src/object';
 import { paddingStyle, positionStyle, sizeStyle } from '@solariera/native-style/src/object';
 import { fontColorStyle, fontFamilyStyle, fontSizeStyle } from '@solariera/native-style/src/text';
 import { placementStyle, letterSpacingStyle, strokeStyle } from '@solariera/native-style/src/text';
 import { useMemoizedObject } from '@solariera/use-memoized/src';
-
-import { TextType, TextStyleType } from '../../types/style.text';
 
 export type Props = TextType & {
   text?: string;
