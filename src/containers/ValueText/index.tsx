@@ -1,11 +1,9 @@
 import React from 'react';
-
+import { useMemoized } from '@solariera/use-memoized';
 import { useTranslation } from '../localize';
-import { TextField, Props as TextFieldProps } from '../../atoms/TextField';
+import { TextField, Props as TextFieldProps } from '~/atoms/TextField';
 import { editNumber } from './editNumber';
 import { alignDigit } from './alignDigit';
-
-import { useMemoizedObject } from '@solariera/use-memoized/src';
 
 export type Props = TextFieldProps & {
   value?: string | number;
@@ -59,7 +57,7 @@ const Component: React.FC<Props> = (props: Props) => {
      * 桁揃えオプションが無効の場合は、最大値越え処理や、カンマ区切り処理を行う。
      * 文字列の場合はそのまま表示させる。
      * 小数点のけたぞろえには対応していない。
-     * TODO: 小数点の扱いをどうするかまた考える（2020/4/14）
+     * TODO: 小数点の扱いをどうするかまた考える
      */
     viewValue = typeof value === 'number' ? editNumber(value, limit, comma) : value;
   }
@@ -82,7 +80,7 @@ const Component: React.FC<Props> = (props: Props) => {
   /**
    * メモ化したオブジェクトを生成する
    */
-  const textFieldProps: TextFieldProps = useMemoizedObject({
+  const textFieldProps: TextFieldProps = useMemoized({
     ...textProps,
     fontFamily: fontFamilyName,
     text: viewValue,

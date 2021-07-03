@@ -1,13 +1,11 @@
 import React from 'react';
-
-import { styled } from '../../styled';
-import { TextType, TextStyleType } from '../../types/text';
-
-import { colorStyle, marginStyle, opacityStyle } from '@solariera/native-style/src/object';
-import { paddingStyle, positionStyle, sizeStyle } from '@solariera/native-style/src/object';
-import { fontColorStyle, fontFamilyStyle, fontSizeStyle } from '@solariera/native-style/src/text';
-import { placementStyle, letterSpacingStyle, strokeStyle } from '@solariera/native-style/src/text';
-import { useMemoizedObject } from '@solariera/use-memoized/src';
+import { useMemoized } from '@solariera/use-memoized';
+import { colorStyle, marginStyle, opacityStyle } from '@solariera/native-style';
+import { paddingStyle, positionStyle, sizeStyle } from '@solariera/native-style';
+import { fontColorStyle, fontFamilyStyle, fontSizeStyle } from '@solariera/native-style';
+import { placementStyle, letterSpacingStyle, textStrokeStyle } from '@solariera/native-style';
+import { styled } from '~/styled';
+import { TextType, TextStyleType } from '~/types/text';
 
 export type Props = TextType & {
   text?: string;
@@ -31,12 +29,12 @@ const Component: React.FC<Props> = (props: Props) => {
   /**
    * 無効化時のスタイルを呼び出す
    */
-  const disabled = useMemoizedObject(disable ? { ...disabledStyle } : {});
+  const disabled = useMemoized(disable ? { ...disabledStyle } : {});
 
   /**
    * テキストフィールドのプロパティ
    */
-  const styleProps: StyleProps = useMemoizedObject({
+  const styleProps: StyleProps = useMemoized({
     ...textProps,
     left: left === -1 ? undefined : left,
     right: right === -1 ? undefined : right,
@@ -63,7 +61,7 @@ const TextArea = styled.Text<StyleProps>`
   ${(props: StyleProps) => fontSizeStyle({ ...props })}
   ${(props: StyleProps) => placementStyle({ ...props })}
   ${(props: StyleProps) => letterSpacingStyle({ ...props })}
-  ${(props: StyleProps) => strokeStyle({ ...props })}
+  ${(props: StyleProps) => textStrokeStyle({ ...props })}
 `;
 
 export const TextField = React.memo(Component);

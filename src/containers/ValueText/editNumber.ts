@@ -11,7 +11,7 @@ import { addThousandsSeparator } from './addThousandsSeparator';
  * @param {string} mark 上限表示させるときのマーク(デフォルト: +)
  * @returns {string} 表示形式に変換された数字
  */
-const editNumber = (value: number, limit: number | undefined, comma = false, mark = '+'): string => {
+export const editNumber = (value: number, limit: number | undefined, comma = false, mark = '+'): string => {
   // limitが存在しない場合は、valueの値を与える(上限越え表示させない)。
   // 指定がない場合は、そのまま表示させる。そのためにlimitにvalueを入れる。
   limit = limit === undefined ? (limit = value) : limit;
@@ -25,5 +25,3 @@ const editNumber = (value: number, limit: number | undefined, comma = false, mar
   // カンマオプションがあった場合は、数字部に3桁区切りを加える。
   return comma ? addThousandsSeparator(valueString) : valueString;
 };
-
-export { editNumber };

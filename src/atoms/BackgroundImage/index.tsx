@@ -1,10 +1,8 @@
 import React from 'react';
-
-import { styled } from '../../styled';
-import { BgImageType, BgImageStyleType } from '../../types/bgimage';
-
-import { positionStyle, sizeStyle } from '@solariera/native-style/src/object';
-import { useMemoizedObject } from '@solariera/use-memoized/src';
+import { useMemoized } from '@solariera/use-memoized';
+import { positionStyle, sizeStyle } from '@solariera/native-style';
+import { styled } from '~/styled';
+import { BgImageType, BgImageStyleType } from '~/types/bgimage';
 
 export type Props = BgImageType;
 
@@ -16,12 +14,12 @@ const Component: React.FC<Props> = (props: Props) => {
   /**
    * ImageResizeModeのオブジェクト
    */
-  const imageStyle = useMemoizedObject({ resizeMode });
+  const imageStyle = useMemoized({ resizeMode });
 
   /**
    * 背景のスタイルに渡すプロパティ
    */
-  const backgroundProps = useMemoizedObject({ left, top, width, height, source, imageStyle });
+  const backgroundProps = useMemoized({ left, top, width, height, source, imageStyle });
 
   return <BackgroundView {...backgroundProps}>{children}</BackgroundView>;
 };

@@ -1,12 +1,10 @@
 import React from 'react';
-
-import { styled } from '../../styled';
-import { FrameType, FrameStyleType } from '../../types/frame';
-
-import { flexBasicStyle, flexContainerStyle } from '@solariera/native-style/src/flex';
-import { borderStyle, colorStyle, marginStyle, opacityStyle } from '@solariera/native-style/src/object';
-import { paddingStyle, positionStyle, roundStyle, sizeStyle } from '@solariera/native-style/src/object';
-import { useMemoizedObject } from '@solariera/use-memoized/src';
+import { useMemoized } from '@solariera/use-memoized';
+import { flexBasicStyle, flexContainerStyle } from '@solariera/native-style';
+import { borderStyle, colorStyle, marginStyle, opacityStyle } from '@solariera/native-style';
+import { paddingStyle, positionStyle, roundStyle, sizeStyle } from '@solariera/native-style';
+import { styled } from '~/styled';
+import { FrameType, FrameStyleType } from '~/types/frame';
 
 export type Props = FrameType & {
   onPress?: () => void;
@@ -30,12 +28,12 @@ const Component: React.FC<Props> = (props: Props) => {
   /**
    * 無効化時のスタイルを呼び出す
    */
-  const disabled = useMemoizedObject(disable ? { ...disabledStyle } : {});
+  const disabled = useMemoized(disable ? { ...disabledStyle } : {});
 
   /**
    * フレームのプロパティ
    */
-  const styleProps: StyleProps = useMemoizedObject({
+  const styleProps: StyleProps = useMemoized({
     ...frameProps,
     left: left === -1 ? undefined : left,
     right: right === -1 ? undefined : right,

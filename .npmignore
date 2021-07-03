@@ -1,6 +1,6 @@
 .github/
 .vscode/
-dist/
+coverage/
 node_modules/
 src/
 .babelrc

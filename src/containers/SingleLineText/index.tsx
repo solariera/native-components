@@ -1,8 +1,7 @@
 import React from 'react';
-
+import { useMemoized } from '@solariera/use-memoized';
 import { useTranslation } from '../localize';
-import { TextField, Props as TextFieldProps } from '../../atoms/TextField';
-import { useMemoizedObject } from '@solariera/use-memoized/src';
+import { TextField, Props as TextFieldProps } from '~/atoms/TextField';
 
 export type Props = TextFieldProps & {
   text?: string;
@@ -14,15 +13,10 @@ const Component: React.FC<Props> = (props: Props) => {
 
   /**
    * 値を書き換えるプロパティ
-   * プロパティ名を差し替えるプロパティ
-   */
-  const { left, right, top, bottom, fontFamily } = props;
-
-  /**
    * 初期値をここで指定するプロパティ
    * スタイルに渡さないプロパティ
    */
-  const { text = '', translate = true, ...textProps } = props;
+  const { fontFamily, text = '', translate = true, ...textProps } = props;
 
   /**
    * 翻訳機能がONの場合は、それぞれの国のフォントに切り替える
@@ -37,7 +31,7 @@ const Component: React.FC<Props> = (props: Props) => {
   /**
    * メモ化したオブジェクトを生成する
    */
-  const textFieldProps: TextFieldProps = useMemoizedObject({
+  const textFieldProps: TextFieldProps = useMemoized({
     ...textProps,
     fontFamily: fontFamilyName,
     text: viewText,

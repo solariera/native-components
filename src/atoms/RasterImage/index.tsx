@@ -1,11 +1,9 @@
 import React from 'react';
-
-import { styled } from '../../styled';
-import { ImageType, ImageStyleType } from '../../types/image.native';
-
-import { marginStyle, opacityStyle } from '@solariera/native-style/src/object';
-import { paddingStyle, positionStyle, sizeStyle } from '@solariera/native-style/src/object';
-import { useMemoizedObject } from '@solariera/use-memoized/src';
+import { useMemoized } from '@solariera/use-memoized';
+import { marginStyle, opacityStyle } from '@solariera/native-style';
+import { paddingStyle, positionStyle, sizeStyle } from '@solariera/native-style';
+import { styled } from '~/styled';
+import { ImageType, ImageStyleType } from '~/types/image.native';
 
 export type Props = ImageType;
 
@@ -27,12 +25,12 @@ const Component: React.FC<Props> = (props: Props) => {
   /**
    * 無効化時のスタイルを呼び出す
    */
-  const disabled = useMemoizedObject(disable ? { ...disabledStyle } : {});
+  const disabled = useMemoized(disable ? { ...disabledStyle } : {});
 
   /**
    * イメージのプロパティ
    */
-  const styleProps: StyleProps = useMemoizedObject({
+  const styleProps: StyleProps = useMemoized({
     ...imageProps,
     left: left === -1 ? undefined : left,
     right: right === -1 ? undefined : right,
