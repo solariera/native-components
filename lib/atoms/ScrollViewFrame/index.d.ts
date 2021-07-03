@@ -1,5 +1,5 @@
 import React from 'react';
-import { FrameType } from '../../types/frame';
+import { FrameType } from '~/types/frame';
 export declare type Props = FrameType & {
     horizontal?: boolean;
 };

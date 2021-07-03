@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextType } from '../../types/text';
+import { TextType } from '~/types/text';
 export declare type Props = TextType & {
     text?: string;
 };
