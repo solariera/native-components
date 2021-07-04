@@ -1,6 +1,6 @@
 {
   "name": "@solariera/native-components",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "ReactNative primitive components",
   "author": "Solariera <always@solariera.com> (https://github.com/solariera)",
   "license": "MIT",
