@@ -2,8 +2,8 @@ import React from 'react';
 import { useMemoized } from '@solariera/use-memoized';
 import { marginStyle, opacityStyle } from '@solariera/native-style';
 import { paddingStyle, positionStyle, sizeStyle } from '@solariera/native-style';
-import { styled } from '~/styled';
-import { ImageType, ImageStyleType } from '~/types/image.native';
+import { styled } from '../../styled';
+import { ImageType, ImageStyleType } from '../../types/image.native';
 
 export type Props = ImageType;
 

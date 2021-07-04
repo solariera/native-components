@@ -27,7 +27,7 @@
     "lib"
   ],
   "dependencies": {
-    "@solariera/native-style": "^0.0.3",
+    "@solariera/native-style": "^0.0.4",
     "@solariera/use-memoized": "^0.0.3",
     "i18next": "^20.3.2",
     "react": "^17.0.2",

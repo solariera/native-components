@@ -1,7 +1,7 @@
 import React from 'react';
 import { useMemoized } from '@solariera/use-memoized';
 import { useTranslation } from '../localize';
-import { TextField, Props as TextFieldProps } from '~/atoms/TextField';
+import { TextField, Props as TextFieldProps } from '../../atoms/TextField';
 import { editNumber } from './editNumber';
 import { alignDigit } from './alignDigit';
 

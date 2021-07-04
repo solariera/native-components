@@ -1,8 +1,8 @@
 import React from 'react';
 import { useMemoized } from '@solariera/use-memoized';
 import { positionStyle, sizeStyle } from '@solariera/native-style';
-import { styled } from '~/styled';
-import { BgImageType, BgImageStyleType } from '~/types/bgimage';
+import { styled } from '../../styled';
+import { BgImageType, BgImageStyleType } from '../../types/bgimage';
 
 export type Props = BgImageType;
 

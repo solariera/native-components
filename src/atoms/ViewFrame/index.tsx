@@ -3,8 +3,8 @@ import { useMemoized } from '@solariera/use-memoized';
 import { flexBasicStyle, flexContainerStyle } from '@solariera/native-style';
 import { borderStyle, colorStyle, marginStyle, opacityStyle } from '@solariera/native-style';
 import { paddingStyle, positionStyle, roundStyle, sizeStyle } from '@solariera/native-style';
-import { styled } from '~/styled';
-import { FrameType, FrameStyleType } from '~/types/frame';
+import { styled } from '../../styled';
+import { FrameType, FrameStyleType } from '../../types/frame';
 
 export type Props = FrameType & {};
 

@@ -4,8 +4,8 @@ import { colorStyle, marginStyle, opacityStyle } from '@solariera/native-style';
 import { paddingStyle, positionStyle, sizeStyle } from '@solariera/native-style';
 import { fontColorStyle, fontFamilyStyle, fontSizeStyle } from '@solariera/native-style';
 import { placementStyle, letterSpacingStyle, textStrokeStyle } from '@solariera/native-style';
-import { styled } from '~/styled';
-import { TextType, TextStyleType } from '~/types/text';
+import { styled } from '../../styled';
+import { TextType, TextStyleType } from '../../types/text';
 
 export type Props = TextType & {
   text?: string;
